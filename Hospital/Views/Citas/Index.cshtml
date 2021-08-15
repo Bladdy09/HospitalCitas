@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HospitalCitas.Models.Cita>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear una nueva cita</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha de inicio
+            </th>
+            <th>
+                Fecha Final
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notas)
+            </th>
+            <th>
+                ¿Cita completada?
+            </th>
+            <th>
+                Duracion de la cita
+            </th>
+            <th>
+                Doctor
+            </th>
+            <th>
+                Paciente
+            </th>
+            <th>
+                Secretaria
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoDeLaCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CitaCompletada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuracionDeLaCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IddoctorNavigation.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdpacienteNavigation.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdsecretariaNavigation.Cargo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idcita">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Idcita">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idcita">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

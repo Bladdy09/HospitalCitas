@@ -1,0 +1,72 @@
+﻿@model HospitalCitas.Models.Cita
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Cita</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha de inicio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha final
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaFinal)
+        </dd>
+        <dt class = "col-sm-2">
+                Estado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EstadoDeLaCita)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Notas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Notas)
+        </dd>
+        <dt class="col-sm-2">
+            ¿Cita completada?
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CitaCompletada)
+        </dd>
+        <dt class = "col-sm-2">
+            Duracion de la cita
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DuracionDeLaCita)
+        </dd>
+        <dt class = "col-sm-2">
+            Doctor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IddoctorNavigation.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Paciente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdpacienteNavigation.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Secretaria
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdsecretariaNavigation.Nombre)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Idcita">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
+</div>

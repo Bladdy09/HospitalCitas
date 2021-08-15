@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "LoginSecretaria";
+}
+@model HospitalCitas.Models.Secretaria
+
+<h1>Inicio de sesion</h1>
+<form asp-action="Privacy" asp-controller="Home" id="Registrar">
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label>Secretaria</label>
+            <input type="text" asp-for="Correo" class="form-control" />
+            <span asp-validation-for="Correo"></span>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label>Secretaria</label>
+            <input type="text" asp-for="Contrasena" class="form-control" />
+            <span asp-validation-for="Contrasena"></span>
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </div>
+</form>

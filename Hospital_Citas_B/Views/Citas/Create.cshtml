@@ -1,0 +1,70 @@
+﻿@model Hospital_Citas_B.Models.Citas
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Citas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FechaInicio" class="control-label"></label>
+                <input asp-for="FechaInicio" class="form-control" />
+                <span asp-validation-for="FechaInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaFinal" class="control-label"></label>
+                <input asp-for="FechaFinal" class="form-control" />
+                <span asp-validation-for="FechaFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idpaciente" class="control-label"></label>
+                <select asp-for="Idpaciente" class ="form-control" asp-items="ViewBag.Idpaciente"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idsecretaria" class="control-label"></label>
+                <select asp-for="Idsecretaria" class ="form-control" asp-items="ViewBag.Idsecretaria"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iddoctor" class="control-label"></label>
+                <select asp-for="Iddoctor" class ="form-control" asp-items="ViewBag.Iddoctor"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoDeLaCita" class="control-label"></label>
+                <input asp-for="EstadoDeLaCita" class="form-control" />
+                <span asp-validation-for="EstadoDeLaCita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notas" class="control-label"></label>
+                <input asp-for="Notas" class="form-control" />
+                <span asp-validation-for="Notas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CitaCompletada" class="control-label"></label>
+                <input asp-for="CitaCompletada" class="form-control" />
+                <span asp-validation-for="CitaCompletada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DuracionDeLaCita" class="control-label"></label>
+                <input asp-for="DuracionDeLaCita" class="form-control" />
+                <span asp-validation-for="DuracionDeLaCita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

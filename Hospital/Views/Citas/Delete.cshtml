@@ -1,0 +1,75 @@
+﻿@model HospitalCitas.Models.Cita
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estás seguro que quieres eliminar esto?</h3>
+<div>
+    <h4>Cita</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha de inicio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha final
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaFinal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstadoDeLaCita)
+        </dt>
+        <dd class = "col-sm-10">
+            Estado
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Notas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Notas)
+        </dd>
+        <dt class="col-sm-2">
+            ¿Cita completada?
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CitaCompletada)
+        </dd>
+        <dt class = "col-sm-2">
+            Duracion de la cita
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DuracionDeLaCita)
+        </dd>
+        <dt class = "col-sm-2">
+            Doctor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IddoctorNavigation.Nombre)
+        </dd class>
+        <dt class = "col-sm-2">
+            Paciente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdpacienteNavigation.Nombre)
+        </dd class>
+        <dt class = "col-sm-2">
+            Secretaria
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdsecretariaNavigation.Nombre)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Idcita" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>
