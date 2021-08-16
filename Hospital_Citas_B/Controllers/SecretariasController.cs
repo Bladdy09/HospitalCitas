@@ -19,10 +19,21 @@ namespace Hospital_Citas_B.Controllers
             _context = context;
         }
 
-        //[HttpGet]
-        public ActionResult LoginSecretary()
+        //[HttpPost]
+        public ActionResult LoginSecretary(string email, string password)
         {
-            return View();
+            HospitalContext db = new HospitalContext();
+            if(!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password)){
+                var secre = db.Secretaria.FirstOrDefault(e => e.Correo == email && e.Contrasena == password);
+
+            }else if(!string.IsNullOrEmpty(email) && string.IsNullOrEmpty(password)){
+                var secre = db.Secretaria.FirstOrDefault(e => e.Correo == email && e.Contrasena == password);
+                FormsAuthentication.SetAuthCookie(email, true);
+                return View(_context.Doctors.ToList());
+            }else{
+                return View("Por favor rellene los campos faltantes");
+            }
+             
         }
 
 
